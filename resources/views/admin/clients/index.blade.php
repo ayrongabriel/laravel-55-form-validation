@@ -42,8 +42,8 @@
                                         <a href="{{route('admin.clients.show', $client->id)}}" class="btn btn-info" title="Visualizar"><i class="fa fa-eye"></i></a>
                                         <a href="{{route('admin.clients.edit', $client->id)}}" class="btn btn-success" title="Editar"><i class="fa fa-edit"></i></a>
                                         <a class="btn btn-danger" href="{{ route('admin.clients.destroy',['client' => $client->id]) }}"
-                                           onclick="event.preventDefault();if(confirm('Deseja excluir {{$client->name}}? ')){document.getElementById('form-delete').submit();}"><i class="fa fa-trash"></i></a>
-                                        <form id="form-delete"style="display: none" action="{{ route('admin.clients.destroy',['client' => $client->id]) }}" method="post">
+                                           onclick="event.preventDefault();if(confirm('Deseja excluir {{$client->name}}? ')){document.getElementById('form-delete-{{$client->id}}').submit();}"><i class="fa fa-trash"></i></a>
+                                        <form id="form-delete-{{$client->id}}" style="display: none" action="{{ route('admin.clients.destroy',['client' => $client->id]) }}" method="post">
                                             {{csrf_field()}}
                                             {{method_field('DELETE')}}
                                         </form>
